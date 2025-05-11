@@ -1,0 +1,13 @@
+### Create a new patient entity
+POST http://localhost:2000/patients
+Content-Type: application/json
+
+{
+  "name": "jay Pawar",
+  "email": "1234",
+  "address": "mumbai maharashtra",
+  "dateOfBirth": "2002-01-08",
+  "registeredDate": "2025-05-11"
+}
+
+###

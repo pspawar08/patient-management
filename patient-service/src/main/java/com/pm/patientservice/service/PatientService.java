@@ -17,3 +17,18 @@ public class PatientService {
     public PatientService(PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
     }
+
+    public List<PatientResponseDTO> getPatients (){
+        List<Patient> patients = patientRepository.findAll();
+
+//        List<PatientResponseDTO> patientResponseDTOs = patients.stream()
+//                .map(patient -> PatientMapper.toDTO(patient)).toList();
+
+//        List<PatientResponseDTO> patientResponseDTOs = patients.stream()                  //Simplifed using Method Refrence
+//                .map(PatientMapper::toDTO).toList();
+//        return patientResponseDTOs;
+
+        return patients.stream()
+                .map(PatientMapper::toDTO).toList();
+
+    }

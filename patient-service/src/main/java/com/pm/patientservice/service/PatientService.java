@@ -9,8 +9,10 @@ import com.pm.patientservice.model.Patient;
 import com.pm.patientservice.repository.PatientRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.UUID;
 
 @Service
 public class PatientService {
@@ -22,6 +24,7 @@ public class PatientService {
     }
 
     public List<PatientResponseDTO> getPatients (){
+    public List<PatientResponseDTO> getPatients() {
         List<Patient> patients = patientRepository.findAll();
 
 //        List<PatientResponseDTO> patientResponseDTOs = patients.stream()
@@ -33,6 +36,7 @@ public class PatientService {
 
         return patients.stream()
                 .map(PatientMapper::toDTO).toList();
+        return patients.stream().map(PatientMapper::toDTO).toList();
 
     }
 

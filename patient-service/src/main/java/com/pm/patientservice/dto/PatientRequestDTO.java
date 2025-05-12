@@ -20,7 +20,7 @@ public class PatientRequestDTO {
     @NotBlank(message = "Date of birth is required")
     private String dateOfBirth;
 
-    @NotBlank(message = "Registered date is required")
+    @NotBlank(groups = CreatePatientValidationGroup.class,message = "Registered date is required")
     private String registeredDate;
 
     public @NotBlank(message = "Name is required") @Size(max = 100, message = "Name cannot exceed 100 charachters") String getName() {
@@ -55,11 +55,11 @@ public class PatientRequestDTO {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public @NotBlank(message = "Registered date is required") String getRegisteredDate() {
+    public String getRegisteredDate() {
         return registeredDate;
     }
 
-    public void setRegisteredDate(@NotBlank(message = "Registered date is required") String registeredDate) {
+    public void setRegisteredDate( String registeredDate) {
         this.registeredDate = registeredDate;
     }
 }

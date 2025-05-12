@@ -11,19 +11,16 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.UUID;
 
 @Service
 public class PatientService {
-    private PatientRepository patientRepository;
     private final PatientRepository patientRepository;
 
     public PatientService(PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
     }
 
-    public List<PatientResponseDTO> getPatients (){
     public List<PatientResponseDTO> getPatients() {
         List<Patient> patients = patientRepository.findAll();
 
@@ -34,8 +31,6 @@ public class PatientService {
 //                .map(PatientMapper::toDTO).toList();
 //        return patientResponseDTOs;
 
-        return patients.stream()
-                .map(PatientMapper::toDTO).toList();
         return patients.stream().map(PatientMapper::toDTO).toList();
 
     }

@@ -30,7 +30,7 @@ public class PatientController {
 
     @PostMapping
     public ResponseEntity<PatientResponseDTO> createPatient(
-            @Valid @RequestBody PatientRequestDTO patientRequestDTO){
+            @Validated({Default.class, CreatePatientValidationGroup.class}) @RequestBody PatientRequestDTO patientRequestDTO){
         PatientResponseDTO patientResponseDTO = patientService.createPatient(patientRequestDTO);
         return ResponseEntity.ok().body(patientResponseDTO);
     }
